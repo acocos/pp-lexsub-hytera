@@ -16,7 +16,7 @@ Our system automates the process of enumerating paraphrases for parts of the ref
 
 Before running this code, you'll need to download our re-implementation of the AddCos metric and HyTER MT evaluation system, and a few other resources.
 
-1. Clone the git repository [https://github.com/acocos/lexsub\_addcos](https://github.com/acocos/lexsub\_addcos)
+1. Clone the git repository [https://github.com/acocos/lexsub\_addcos](https://github.com/acocos/lexsub\_addcos) from the base directory of this repo.
     ` git clone https://github.com/acocos/lexsub_addcos`
 2. Install the re-implementation of HyTER and its dependencies, following the instructions on the site: [https://bitbucket.org/gwisniewski/hytera](https://bitbucket.org/gwisniewski/hytera)
 3. Download a copy of PPDB from [www.paraphrase.org](www.paraphrase.org). For the paper we use English PPDB-XXL.
@@ -60,12 +60,16 @@ tokenizer_wmt/
 
 ### Running the code
 
-To run this code, you'll need files containing reference and translation sentences such as the ones available [here]().
+To run this code, you'll need files containing reference and translation sentences such as the ones given as examples in `testdata/`.
 
 To generate paraphrase lattices, first check `pipeline.sh` to make sure all the specified paths are correct for your configuration.
 
 Simply run:
-`pipeline.sh exampleinput`
+`pipeline.sh <REFFILE> <HYPFILE>`
+
+where `<REFFILE>` is the file containing reference sentences (one per line), and `<HYPFILE>` contains predicted translations. For example:
+
+`pipeline.sh testdata/newstest2016-deen-ref.en testdata/newstest2016.online-A.0.de-en`
 
 
  
